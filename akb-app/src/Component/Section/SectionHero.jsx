@@ -1,9 +1,10 @@
 import "../../Styles/sectionHero.css"
+import Navbar from "../Menu/Navbar";
 
 function SectionHero() {
    return (
-
-        <section>
+        <section class="search_hero">
+            <Navbar/>
 
         </section>
     );

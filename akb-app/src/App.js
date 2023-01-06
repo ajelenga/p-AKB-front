@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
-import Navbar from "./Component/Menu/Navbar";
+import SectionHero from "./Component/Section/SectionHero";
 
 function App() {
   return (
     <React.Fragment>
-        <Navbar/>
+        <SectionHero/>
     </React.Fragment>
   );
 }
