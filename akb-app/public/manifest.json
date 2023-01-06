@@ -3,9 +3,9 @@
   "name": "Louez un véhicule ou faite louez le votre - AKB",
   "icons": [
     {
-      "src": "/img/AKB.png",
+      "src": "/img/AKB_menu.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "200x200"
     },
     {
       "src": "/img/AKB2.png",

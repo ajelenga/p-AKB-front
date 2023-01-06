@@ -11,7 +11,7 @@ function Navbar() {
 
     return (
         <header>
-            <h3>LOGO</h3>
+            <h3><img src="/img/AKB_menu.png" alt="bug" height={80} /></h3>
             <nav ref={navRef}>
                 <a href="/#">Se Connecter</a>
                 <a href="/#">Des questions</a>

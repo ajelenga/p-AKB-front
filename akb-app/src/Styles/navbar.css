@@ -6,8 +6,8 @@ header{
     justify-content: space-between;
     height: 80px;
     padding: 0 2rem;
-    background-color: var(--mainColor);
-    color: var(--textColor);
+    /*background-color: var(--mainColor);*/
+    color: var(--textColorMenu);
 }
 
 header {
@@ -16,13 +16,13 @@ header {
     justify-content: space-between;
     height: 80px;
     padding: 0 2rem;
-    background-color: var(--mainColor);
-    color: var(--textColor);
+    /*background-color: var(--mainColor);*/
+    color: var(--textColorMenu);
 }
 
 nav a {
     margin: 0 1rem;
-    color: var(--textColor);
+    color: var(--textColorMenu);
     text-decoration: none;
 }
 
@@ -36,7 +36,7 @@ header .nav-btn {
     background: transparent;
     border: none;
     outline: none;
-    color: var(--textColor);
+    color: var(--textColorMenu);
     visibility: hidden;
     opacity: 0;
     font-size: 1.8rem;
@@ -65,7 +65,7 @@ nav {
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-        background-color: var(--mainColor);
+        /*background-color: var(--mainColor);*/
         transition: 1s;
         transform: translateY(-100vh);
     }

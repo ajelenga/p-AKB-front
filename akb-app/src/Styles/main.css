@@ -10,6 +10,7 @@
 :root{
     --mainColor: #e07b7b;
     --mainColorLight: #ea1919;
-    --secondaryColor: #918b8b;
-    --textColor: #eee
+    --secondaryColor: #ffefef;
+    --textColor: #eee;
+    --textColorMenu: #000000;
 }
