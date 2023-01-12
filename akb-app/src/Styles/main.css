@@ -5,6 +5,12 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Sono', sans-serif;
+
+}
+
+.body{
+    display: flex;
+    flex-direction: column;
 }
 
 :root{
@@ -13,4 +19,5 @@
     --secondaryColor: #ffefef;
     --textColor: #eee;
     --textColorMenu: #000000;
+    --mainColorHero: #ebf2ff;
 }
