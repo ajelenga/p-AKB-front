@@ -1,22 +1,37 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import "../../Styles/header.css"
 import Navbar from "../Menu/Navbar";
-import {AiTwotoneCalendar, AiTwotoneEnvironment} from "react-icons/ai";
+import {AiTwotoneEnvironment} from "react-icons/ai";
+
+import $ from "jquery";
 
 function Header() {
-    useEffect(() => {
-        let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth() + 1; //January is 0!
-        let yyyy = today.getFullYear();
-        if (dd < 10) {
-            dd = '0' + dd
-        }
-        if (mm < 10) {
-            mm = '0' + mm
-        }
-        today = yyyy + '-' + mm + '-' + dd;
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    let yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    today = yyyy + '-' + mm + '-' + dd;
+
+    function test(e) {
+        document.getElementById("datefield2").disabled = false;
+        document.getElementById('datefield2').min = document.getElementById('datefield1').value;
+
+    }
+
+    $(function () {
+        document.getElementById('datefield1').min = today;
+        document.getElementById("datefield2").disabled = true;
+        //document.getElementById('datefield2').min = today;
+        document.querySelector("#datefield1").addEventListener("input", test);
     });
+
+
     return (
         <section className="home">
             <Navbar/>
@@ -40,14 +55,12 @@ function Header() {
                                     </div>
                                 </div>
                                 <div className="child-2">
-                                    <input id="datefield" type='date' min={today}
+                                    <input id="datefield1" type='date'
                                            className="date-debut style-input"/>
                                     <div className="position-icon-calendar1">
-                                        <AiTwotoneCalendar/>
                                     </div>
-                                    <input id="datefield" type='date' min={today} className="date-fin style-input"/>
+                                    <input id="datefield2" type='date' className="date-fin style-input"/>
                                     <div className="position-icon-calendar2">
-                                        <AiTwotoneCalendar/>
                                     </div>
                                 </div>
                                 <div className=" search_form__action">
