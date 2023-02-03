@@ -1,6 +1,6 @@
 import React from 'react';
-import "../../Styles/home.css"
-import Navbar from "../Menu/Navbar";
+import "../Styles/home.css"
+import Navbar from "../Component/Menu/Navbar";
 import {AiTwotoneEnvironment} from "react-icons/ai";
 
 import $ from "jquery";

@@ -11,12 +11,12 @@ function Navbar() {
 
     return (
         <header>
-            <h3><img src="/img/AKB_menu.png" alt="bug" height={80}/></h3>
+            <a href="/"><h3><img src="/img/AKB_menu.png" alt="bug" height={80}/></h3></a>
             <nav ref={navRef}>
-                <a href="/#">Se Connecter</a>
-                <a href="/#">Des questions</a>
-                <a href="/#">Louez ma voiture</a>
-                <a href="/#">A propos</a>
+                <a href="/login">Se Connecter</a>
+                <a href="/">Des questions</a>
+                <a href="/">Louez ma voiture</a>
+                <a href="/about">A propos</a>
                 <button
                     className="nav-btn nav-close-btn"
                     onClick={showNavbar}>
