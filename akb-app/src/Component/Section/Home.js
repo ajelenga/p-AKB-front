@@ -1,11 +1,11 @@
 import React from 'react';
-import "../../Styles/header.css"
+import "../../Styles/home.css"
 import Navbar from "../Menu/Navbar";
 import {AiTwotoneEnvironment} from "react-icons/ai";
 
 import $ from "jquery";
 
-function Header() {
+function Home() {
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1; //January is 0!
@@ -76,4 +76,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default Home;

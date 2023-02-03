@@ -1,11 +1,11 @@
 import React from "react";
 import './App.css';
-import Header from "./Component/Section/Header";
+import Home from "./Component/Section/Home";
 
 function App() {
     return (
         <React.Fragment>
-            <Header></Header>
+            <Home></Home>
         </React.Fragment>
     );
 }
