@@ -1,5 +1,5 @@
 import React from 'react';
-import "../Styles/home.css"
+import "../Styles/home.sass"
 import Navbar from "../Component/Menu/Navbar";
 import {AiTwotoneEnvironment} from "react-icons/ai";
 
