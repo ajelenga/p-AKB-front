@@ -1,9 +1,9 @@
 import React from 'react';
 import "../Styles/home.sass"
 import Navbar from "../Component/Menu/Navbar";
-import {AiTwotoneEnvironment} from "react-icons/ai";
 
 import $ from "jquery";
+import {AiTwotoneEnvironment} from "@react-icons/all-files/ai/AiTwotoneEnvironment";
 
 function Home() {
     let today = new Date();
@@ -46,27 +46,50 @@ function Home() {
                             <p className="search_hero__subtitle">Déverrouillez-la 24h/24 avec l'appli et
                                 partez&nbsp;!
                             </p>
-                            <form className="form-class">
-                                <div className="child-1">
-                                    <input className="addresse style-input"
+
+                            <form className="form-reservation rounded overflow-hidden ">
+                                <div className="relative z-0 w-full mb-6 group">
+                                    <div
+                                        className="absolute inset-y-0 right-8 flex items-center pl-3 pointer-events-none">
+                                        <AiTwotoneEnvironment className="taille-icon"/>
+                                    </div>
+                                    <input type="text" id="address-icon"
+                                           className=" input-home block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white-50
+                                            sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600
+                                             dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                            placeholder="Adresse précise, gare, métro..."/>
-                                    <div className="position-icon-position">
-                                        <AiTwotoneEnvironment/>
-                                    </div>
                                 </div>
-                                <div className="child-2">
-                                    <input id="datefield1" type='date'
-                                           className="date-debut style-input"/>
-                                    <div className="position-icon-calendar1">
+                                <div className="grid md:grid-cols-2 md:gap-6">
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <label htmlFor="datefield1"
+                                               className="block mb-2  font-medium text-gray-900 dark:text-black">Date
+                                            de début
+                                        </label>
+                                        <input type="date" id="datefield1"
+                                               className="input-home block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white-50
+                                            sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600
+                                             dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                                     </div>
-                                    <input id="datefield2" type='date' className="date-fin style-input"/>
-                                    <div className="position-icon-calendar2">
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <label htmlFor="datefield2"
+                                               className="block mb-2  font-medium text-gray-900 dark:text-black">Date
+                                            de fin
+                                        </label>
+
+                                        <input type="date" id="datefield2"
+                                               className="input-home block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white-50
+                                            sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600
+                                             dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
                                     </div>
-                                </div>
-                                <div className=" search_form__action">
-                                    <button className="btn style-input-btn">Rechercher</button>
                                 </div>
 
+
+                                <button type="button"
+                                        className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
+                                        focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg 
+                                        px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500
+                                        dark:hover:bg-[#050708]/30 mr-2 mb-2 input-home w-full">S'inscrire
+                                </button>
                             </form>
                         </div>
                     </div>

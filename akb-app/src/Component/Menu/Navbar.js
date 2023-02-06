@@ -11,9 +11,9 @@ function Navbar() {
 
     return (
         <header>
-            <a href="/"><h3><img src="/img/AKB_menu.png" alt="bug" height={80}/></h3></a>
+            <a href="/"><h3><img className="img-taille" src="/img/AKB_menu.png" alt="bug"/></h3></a>
             <nav ref={navRef}>
-                <a href="/login">Se Connecter</a>
+                <a href="/auth/login">Se Connecter</a>
                 <a href="/">Des questions</a>
                 <a href="/">Louez ma voiture</a>
                 <a href="/about">A propos</a>
