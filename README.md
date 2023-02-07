@@ -3,25 +3,25 @@
 
 
 
-# Description : 
+## Description : 
 Application de gestion de location d’automobile.Une entreprise qui possède un certain nombre de véhicules qui les met à la disposition des utilisateurs pour une location. Cette entreprise propose à des particuliers ou professionnels la possibilité de mettre en location leurs véhicules, à condition que leur véhicule respecte les critères pour autoriser leur location auprès de l'agence.
 
-# clients:    
+### clients:    
 mettre leur bien en location - MEL
 louer des véhicules - LV
-# gestionnaires:
+### gestionnaires:
 Administrateur
 validateur
     -	consultation
 
 # Fonctionnalités - US:
-# Client : 
+### Client : 
 …je veux pouvoir créer un compte si je n’en possède pas un. 
 accès page connexion 
 case à cocher LV ou MEL
 en fonction de la case cochée redirigée vers la page d’accueil de la case cochée précédent.
 
-# Client page MEL : 
+### Client page MEL : 
 en tant que client ML je veux pouvoir me connecter afin d’accéder à mon compte
 accès page d’accueil MEL 
 CRUD gestion profil
@@ -31,8 +31,8 @@ CRUD gestion mise en location
 CRUD gestion profil
 CRUD gestion pour la location
 
-# Gestionnaire :
-# Administrateur:
+### Gestionnaire :
+### Administrateur:
 Connexion / CRUD gestionnaire.
 Rôle inclus validateur 
 validateur
@@ -46,7 +46,7 @@ footer contacter nous informations sur l’entreprise
 
 
 # Fonctionnalités détaillé - US:
-Client  MEL
+#### Client  MEL
 si un compte (déjà connecté)
 mise en location: 
 enregistrer mon véhicule (km - marque - modèle - plaque im- pays année- carburant - boite vitesse - nb porte - siège -  option- photo)
@@ -58,7 +58,7 @@ enregistrer mon véhicule (km - marque - modèle - plaque im- pays année- carbu
 justificatif facture - PI  
 validation des critères (cuation - carte grise - assurance - etat du véhicule)
 attente validation du validateur
-Client LV
+#### Client LV
 si déjà connecté:
 page d’accueil barre de recherche véhicule à louer
 bouton switch client MEL pour mettre en location.
@@ -66,29 +66,29 @@ résultat recherche -> sélection véhicule choisi.
 mes réservations
 mon profil CRUD.
 
-# Technologie:  
+## Technologie:  
 	IDE: intellij , github, dbeaver
-# Back: spring , mysql
-# Front: react html css bootstrap 
+#### Back: spring , mysql
+#### Front: react html css bootstrap 
 
 
 
-Boostrap : https://tailwindcss.com/
+#### Boostrap : https://tailwindcss.com/
 
-# Site de location de véhicule : 
+### Site de location de véhicule : 
 	https://fr.getaround.com/
 
---mainColor: #e07b7b;
---mainColorLight: #ea1919;
---secondaryColor: #918b8b;
---textColor: #eee
-— bleu : #
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@511&display=swap');
+    --mainColor: #e07b7b;
+    --mainColorLight: #ea1919;
+    --secondaryColor: #918b8b;
+    --textColor: #eee
+    — bleu : #
+    @import url('https://fonts.googleapis.com/css2?family=Sono:wght@511&display=swap');
 
 
-*{
-   padding: 0;
-   margin: 0;
-   box-sizing: border-box;
-   font-family: 'Sono', sans-serif;
-}
+    *{
+       padding: 0;
+       margin: 0;
+       box-sizing: border-box;
+       font-family: 'Sono', sans-serif;
+    }
