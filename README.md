@@ -1,6 +1,7 @@
-# p-AKB-front
-
 # Nom du projet : AKB
+**Partie Front - p-AKB-front**
+
+
 
 # Description : 
 Application de gestion de location d’automobile.Une entreprise qui possède un certain nombre de véhicules qui les met à la disposition des utilisateurs pour une location. Cette entreprise propose à des particuliers ou professionnels la possibilité de mettre en location leurs véhicules, à condition que leur véhicule respecte les critères pour autoriser leur location auprès de l'agence.
