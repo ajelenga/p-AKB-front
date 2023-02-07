@@ -47,7 +47,7 @@ function Home() {
                                 partez&nbsp;!
                             </p>
 
-                            <form className="form-reservation rounded overflow-hidden ">
+                            <form action="" method="post" className="form-reservation rounded overflow-hidden ">
                                 <div className="relative z-0 w-full mb-6 group">
                                     <div
                                         className="absolute inset-y-0 right-8 flex items-center pl-3 pointer-events-none">

@@ -3,6 +3,7 @@ import Navbar from "../../Component/Menu/Navbar";
 import "../../Styles/inscripion.sass"
 
 class Inscription extends Component {
+    handleClick = () => {    console.log('this is:', this);  };
     render() {
         return (
             <section className="home_LOGIN">
@@ -14,7 +15,16 @@ class Inscription extends Component {
                                 <div className="flex justify-center">
                                     <img className="img-taille2" src="/img/AKB_menu.png" alt="bug"/>
                                 </div>
-                                <form className="form-login-inscription rounded overflow-hidden shadow-lg">
+                                <form onClick={this.handleClick} className="form-login-inscription rounded overflow-hidden shadow-lg">
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <label for="sexe" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bonjour</label>
+                                        <select id="sexe" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                                        dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option selected value="Madame">Madame</option>
+                                        <option value="Monsieur">Monsieur</option>
+                                        </select>
+                                    </div>
                                     <div className="relative z-0 w-full mb-6 group">
                                         <input type="texte" name="floating_pseudo" id="floating_pseudo"
                                                className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
