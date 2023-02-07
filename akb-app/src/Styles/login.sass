@@ -53,3 +53,13 @@
 .input-taille
   font-size: 0.975rem
   line-height: 1.55rem
+
+.error-message
+  display: none
+  color: #ea1919
+
+input:invalid[focused="true"] ~ span
+  display: block
+
+input:invalid[focused="true"]
+  border-bottom: 2px solid #ea1919

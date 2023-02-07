@@ -7,6 +7,7 @@ import Login from "./pages/auth/Login";
 import Inscription from "./pages/auth/Inscription";
 import MiseEnLocation from "./pages/compte/MiseEnLocation";
 import LocationV from "./pages/compte/LocationV";
+import Formlogin from "./pages/auth/Formlogin";
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                 <Route path={"/auth/inscription"} element={<Inscription/>}/>
                 <Route path={"/compte/locationV"} element={<LocationV/>}/>
                 <Route path={"/compte/miseEnLocation"} element={<MiseEnLocation/>}/>
+                <Route path={"/form"} element={<Formlogin/>}/>
                 <Route path={"*"} element={<Home/>}/>
             </Routes>
         </BrowserRouter>
