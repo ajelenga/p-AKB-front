@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "../Styles/home.sass"
 import Navbar from "../Component/Menu/Navbar";
 
 import $ from "jquery";
 import {AiTwotoneEnvironment} from "@react-icons/all-files/ai/AiTwotoneEnvironment";
+import FormInputHome from "./FormInputHome";
 
 function Home() {
+
     let today = new Date();
     let dd = today.getDate();
     let mm = today.getMonth() + 1; //January is 0!
@@ -26,10 +28,24 @@ function Home() {
 
     $(function () {
         document.getElementById('datefield1').min = today;
-        document.getElementById("datefield2").disabled = true;
+        //document.getElementById("datefield2").disabled = true;
         //document.getElementById('datefield2').min = today;
         document.querySelector("#datefield1").addEventListener("input", test);
     });
+
+    const [values, setValues] = useState({
+        address_icon: "",
+        datefield1: today,
+        datefield2: today
+    })
+    const onChangeinput = (e) => {
+        setValues({...values, [e.target.name]: e.target.value})
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(values)
+    }
 
 
     return (
@@ -47,17 +63,17 @@ function Home() {
                                 partez&nbsp;!
                             </p>
 
-                            <form action="" method="post" className="form-reservation rounded overflow-hidden ">
+                            <form className="form-reservation rounded overflow-hidden " onSubmit={handleSubmit}>
                                 <div className="relative z-0 w-full mb-6 group">
                                     <div
                                         className="absolute inset-y-0 right-8 flex items-center pl-3 pointer-events-none">
                                         <AiTwotoneEnvironment className="taille-icon"/>
                                     </div>
-                                    <input type="text" id="address-icon"
-                                           className=" input-home block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white-50
-                                            sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600
-                                             dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                           placeholder="Adresse précise, gare, métro..."/>
+                                    <FormInputHome placeholder="Adresse précise, gare, métro..."
+                                                   value={values.address_icon}
+                                                   onChange={onChangeinput} type="text" id="address_icon"
+                                                   name="address_icon"
+                                    />
                                 </div>
                                 <div className="grid md:grid-cols-2 md:gap-6">
                                     <div className="relative z-0 w-full mb-6 group">
@@ -65,26 +81,25 @@ function Home() {
                                                className="block mb-2  font-medium text-gray-900 dark:text-black">Date
                                             de début
                                         </label>
-                                        <input type="date" id="datefield1"
-                                               className="input-home block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white-50
-                                            sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600
-                                             dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                                        <FormInputHome placeholder=""
+                                                       onChange={onChangeinput} type="date" id="datefield1"
+                                                       name="datefield1"
+                                        />
                                     </div>
                                     <div className="relative z-0 w-full mb-6 group">
                                         <label htmlFor="datefield2"
                                                className="block mb-2  font-medium text-gray-900 dark:text-black">Date
                                             de fin
                                         </label>
-
-                                        <input type="date" id="datefield2"
-                                               className="input-home block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white-50
-                                            sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600
-                                             dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                                        <FormInputHome placeholder=""
+                                                       onChange={onChangeinput} type="date" id="datefield2"
+                                                       name="datefield2"
+                                        />
                                     </div>
                                 </div>
 
 
-                                <button type="button"
+                                <button type="submit"
                                         className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
                                         focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg 
                                         px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500

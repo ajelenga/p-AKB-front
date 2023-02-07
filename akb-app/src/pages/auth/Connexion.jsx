@@ -3,7 +3,7 @@ import Navbar from "../../Component/Menu/Navbar";
 import FormInput from "./FormInput";
 import {useState} from "react";
 
-const Formlogin = () => {
+const Connexion = () => {
     //const pseudoRef = useRef()
     const [values, setValues] = useState({
         pseudo: "",
@@ -30,8 +30,7 @@ const Formlogin = () => {
                                 <img className="img-taille2" src="/img/AKB_menu.png" alt="bug"/>
                             </div>
                             <form className="form-login-connexion rounded overflow-hidden shadow-lg"
-                                  onSubmit={handleSubmit}
-                            >
+                                  onSubmit={handleSubmit}>
                                 <div className="relative z-0 w-full mb-6 group">
                                     <FormInput placeholder="" value={values.pseudo}
                                                onChange={onChangeinput} type="texte" name="pseudo" id="pseudo"
@@ -88,4 +87,4 @@ const Formlogin = () => {
 
 }
 
-export default Formlogin;
+export default Connexion;
