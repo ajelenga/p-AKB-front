@@ -4,9 +4,9 @@ import FormInput from "./FormInput";
 import {useState} from "react";
 
 const Connexion = () => {
-    //const pseudoRef = useRef()
+    //const emailRef = useRef()
     const [values, setValues] = useState({
-        pseudo: "",
+        email: "",
         password: ""
     })
     const onChangeinput = (e) => {
@@ -15,8 +15,26 @@ const Connexion = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(values)
-    }
+
+        const requestOptions = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                email: values.email,
+                mot_de_pass: values.password,
+            }),
+        };
+        fetch("http://localhost:8083/connexionUser", requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.statutTO === "user") {
+                    alert("ok connexion");
+                } else {
+                    alert("erreur connexion");
+                }
+            });
+        console.log(values);
+    };
 
 
     return (
@@ -32,17 +50,17 @@ const Connexion = () => {
                             <form className="form-login-connexion rounded overflow-hidden shadow-lg"
                                   onSubmit={handleSubmit}>
                                 <div className="relative z-0 w-full mb-6 group">
-                                    <FormInput placeholder="" value={values.pseudo}
-                                               onChange={onChangeinput} type="texte" name="pseudo" id="pseudo"
-                                               errorMessage="Le pseudo doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
-                                               pattern="^[A-Za-z0-9]{3,16}$"
+                                    <FormInput placeholder="" value={values.email}
+                                               onChange={onChangeinput} type="texte" name="email" id="email"
+                                               errorMessage="Le email doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
 
                                     />
-                                    <label htmlFor="pseudo"
+                                    <label htmlFor="email"
                                            className="peer-focus:font-medium absolute text-black-500 dark:text-black
                                                    duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                     peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
-                                                     peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pseudo
+                                                     peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
                                     </label>
                                 </div>
                                 <div className="relative z-0 w-full mb-6 group">

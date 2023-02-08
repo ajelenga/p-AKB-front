@@ -7,7 +7,7 @@ const Inscription = () => {
 
     const [values, setValues] = useState({
         sexe: "Madame",
-        pseudoI: "",
+        emailI: "",
         passwordI: "",
         confirmPassword: "",
         nom: "",
@@ -23,6 +23,36 @@ const Inscription = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        let data = {
+            "idcpt": null,
+            "mailcpt": values.emailI,
+            "photoprofilcpt": "USE1",
+            "motdepassecpt": values.passwordI,
+            "user": {
+                "idusr": null,
+                "nomusr": values.nom,
+                "prenomusr": values.prenom,
+                "datenaissance": values.dateNaissnance,
+                "adresseusr": "Brest",
+                "codepostaleusr": "29200",
+                "pieceidentiteusr": "qsfqsf",
+                "sexeusr": values.sexe
+            }
+        }
+        const requestOptions = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(data),
+        };
+        fetch("http://localhost:8083/inscriptionUtilisateur", requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.statutTO === "Inscription effectué") {
+                    alert("inscription effectué");
+                } else {
+                    alert("erreur dans le form");
+                }
+            });
         console.log(values)
     }
     return (
@@ -50,17 +80,17 @@ const Inscription = () => {
                                     </select>
                                 </div>
                                 <div className="relative z-0 w-full mb-6 group">
-                                    <FormInputInsciption placeholder="" value={values.pseudoI}
-                                                         onChange={onChangeinput} type="texte" name="pseudoI"
-                                                         id="pseudoI"
-                                                         errorMessage="Le pseudo doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
-                                                         pattern="^[A-Za-z0-9]{3,16}$"
+                                    <FormInputInsciption placeholder="" value={values.emailI}
+                                                         onChange={onChangeinput} type="texte" name="emailI"
+                                                         id="emailI"
+                                                         errorMessage="Le email doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                                         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                                     />
-                                    <label htmlFor="pseudoI"
+                                    <label htmlFor="emailI"
                                            className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
-                                                 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pseudo
+                                                 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
                                     </label>
                                 </div>
                                 <div className="relative z-0 w-full mb-6 group">
