@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {redirect} from "react-router-dom";
-import Navbar from "../../Component/Menu/Navbar";
+import Navbar from "../../components/Menu/Navbar";
 import "../../Styles/inscripion.sass"
 import FormInputInsciption from "./FormInputInsciption";
 

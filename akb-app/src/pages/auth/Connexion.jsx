@@ -1,5 +1,5 @@
 import "../../Styles/login.sass"
-import Navbar from "../../Component/Menu/Navbar";
+import Navbar from "../../components/Menu/Navbar";
 import FormInput from "./FormInput";
 import {useState} from "react";
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,7 +18,6 @@ const Connexion = () => {
     };
     const notifyOK = (string) => toast.success(string, val);
     const notifyKO = (string) => toast.error(string, val);
-    const tes = () => toast.promise();
 
     //const emailRef = useRef()
     const [values, setValues] = useState({
@@ -106,7 +105,7 @@ const Connexion = () => {
                                     </div>
                                     <div>
                                         <a
-                                            href="/auth/inscription"><font>S'inscrire?</font></a>
+                                            href="/inscription"><font>S'inscrire?</font></a>
                                     </div>
                                 </div>
                             </form>
