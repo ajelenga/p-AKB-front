@@ -1,168 +1,200 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Navbar from "../../Component/Menu/Navbar";
 import "../../Styles/inscripion.sass"
+import FormInputInsciption from "./FormInputInsciption";
 
-class Inscription extends Component {
-    render() {
-        return (
-            <section className="home_LOGIN">
-                <Navbar/>
-                <div className="homepage">
-                    <div className="search_hero">
-                        <div className="container search_hero__content_login">
-                            <div className="home-page">
-                                <div className="flex justify-center">
-                                    <img className="img-taille2" src="/img/AKB_menu.png" alt="bug"/>
+const Inscription = () => {
+
+    const [values, setValues] = useState({
+        sexe: "Madame",
+        pseudoI: "",
+        passwordI: "",
+        confirmPassword: "",
+        nom: "",
+        prenom: "",
+        dateNaissnance: "",
+        telNumero: "",
+        compagny: "",
+        file: ""
+    })
+    const onChangeinput = (e) => {
+        setValues({...values, [e.target.name]: e.target.value})
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(values)
+    }
+    return (
+        <section className="home_LOGIN">
+            <Navbar/>
+            <div className="homepage">
+                <div className="search_hero">
+                    <div className="container search_hero__content_login">
+                        <div className="home-page">
+                            <div className="flex justify-center">
+                                <img className="img-taille2" src="/img/AKB_menu.png" alt="bug"/>
+                            </div>
+                            <form onSubmit={handleSubmit}
+                                  className="form-login-inscription rounded overflow-hidden shadow-lg">
+                                <div className="relative z-0 w-full mb-6 group">
+                                    <label htmlFor="sexe"
+                                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Bonjour</label>
+                                    <select id="sexe" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 
+                                        dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            value={values.sexe} onChange={onChangeinput} name="sexe"
+                                    >
+                                        <option defaultValue="Madame">Madame</option>
+                                        <option value="Monsieur">Monsieur</option>
+                                    </select>
                                 </div>
-                                <form className="form-login-inscription rounded overflow-hidden shadow-lg">
-                                    <div className="relative z-0 w-full mb-6 group">
-                                        <input type="texte" name="floating_pseudo" id="floating_pseudo"
-                                               className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer" placeholder=" " required/>
-                                        <label htmlFor="floating_pseudo"
-                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                <div className="relative z-0 w-full mb-6 group">
+                                    <FormInputInsciption placeholder="" value={values.pseudoI}
+                                                         onChange={onChangeinput} type="texte" name="pseudoI"
+                                                         id="pseudoI"
+                                                         errorMessage="Le pseudo doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                                         pattern="^[A-Za-z0-9]{3,16}$"
+                                    />
+                                    <label htmlFor="pseudoI"
+                                           className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Pseudo
-                                        </label>
-                                    </div>
-                                    <div className="relative z-0 w-full mb-6 group">
-                                        <input type="password" name="floating_password" id="floating_password"
-                                               className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                               placeholder=" " required/>
-                                        <label htmlFor="floating_password"
-                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                    </label>
+                                </div>
+                                <div className="relative z-0 w-full mb-6 group">
+                                    <FormInputInsciption placeholder="" value={values.passwordI}
+                                                         onChange={onChangeinput} type="password" name="passwordI"
+                                                         id="passwordI"
+                                                         errorMessage="Le mot de passe doit comporter 8 à 20 caractères et inclure au moins une lettre, un chiffre et un caractère spécial !"
+                                                         pattern="^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
+                                    />
+                                    <label htmlFor="passwordI"
+                                           className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Mot
-                                            de passe</label>
-                                    </div>
-                                    <div className="relative z-0 w-full mb-6 group">
-                                        <input type="password" name="repeat_password" id="floating_repeat_password"
-                                               className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                               placeholder=" " required/>
-                                        <label htmlFor="floating_repeat_password"
-                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                        de passe</label>
+                                </div>
+                                <div className="relative z-0 w-full mb-6 group">
+                                    <FormInputInsciption placeholder="" value={values.confirmPassword}
+                                                         onChange={onChangeinput} type="password" name="confirmPassword"
+                                                         id="confirmPassword"
+                                                         errorMessage="Le mot de passe doit comporter 8 à 20 caractères et inclure au moins une lettre, un chiffre et un caractère spécial !"
+                                                         pattern={values.passwordI}
+                                    />
+                                    <label htmlFor="confirmPassword"
+                                           className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirmer
-                                            Mot de passe</label>
-                                    </div>
-                                    <div className="grid md:grid-cols-2 md:gap-6">
-                                        <div className="relative z-0 w-full mb-6 group">
-                                            <input type="text" name="floating_first_name" id="floating_first_name"
-                                                   className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                                   placeholder=" " required/>
-                                            <label htmlFor="floating_first_name"
-                                                   className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                        Mot de passe</label>
+                                </div>
+                                <div className="grid md:grid-cols-2 md:gap-6">
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <FormInputInsciption placeholder="" value={values.nom}
+                                                             onChange={onChangeinput} type="texte" name="nom"
+                                                             id="nom"
+                                                             errorMessage="Le nom doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                                             pattern="^[A-Za-z]{3,16}$"
+                                        />
+                                        <label htmlFor="nom"
+                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nom
-                                            </label>
-                                        </div>
-                                        <div className="relative z-0 w-full mb-6 group">
-                                            <input type="text" name="floating_last_name" id="floating_last_name"
-                                                   className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                                   placeholder=" " required/>
-                                            <label htmlFor="floating_last_name"
-                                                   className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                        </label>
+                                    </div>
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <FormInputInsciption placeholder="" value={values.prenom}
+                                                             onChange={onChangeinput} type="texte" name="prenom"
+                                                             id="prenom"
+                                                             errorMessage="Le prenom doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                                             pattern="^[A-Za-z]{3,16}$"
+                                        />
+                                        <label htmlFor="prenom"
+                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
-                                                Prénom</label>
-                                        </div>
+                                            Prénom</label>
                                     </div>
-                                    <div className="grid md:grid-cols-2 md:gap-6">
-                                        <div className="relative z-0 w-full mb-6 group">
-                                            <input
-                                                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                                border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                                dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                                focus:border-gray-600 peer"
-                                                id="file_input" type="file"/>
-                                            <label className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                </div>
+                                <div className="grid md:grid-cols-2 md:gap-6">
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <FormInputInsciption placeholder="" value={values.dateNaissnance}
+                                                             onChange={onChangeinput} type="date" name="dateNaissnance"
+                                                             id="dateNaissnance"
+                                                             errorMessage=""
+                                        />
+                                        <label htmlFor="dateNaissnance"
+                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                               duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
+                                                peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
+                                                 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date
+                                            de naissance</label>
+                                    </div>
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <FormInputInsciption placeholder="" value={values.file}
+                                                             onChange={onChangeinput} type="file" name="file"
+                                                             id="file"
+                                                             errorMessage=""
+                                        />
+                                        <label className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                     peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                     peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-                                                htmlFor="file_input">Photo de profil</label>
+                                               htmlFor="file">Photo de profil</label>
 
-                                        </div>
-                                        <div className="relative z-0 w-full mb-6 group">
-                                            <input type="date" name="floating_company" id="floating_company"
-                                                   className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                                   placeholder=" " required/>
-                                            <label htmlFor="floating_company"
-                                                   className="peer-focus:font-medium absolute  text-black-500 dark:text-black
-                                               duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
-                                                peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
-                                                 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date de naissance</label>
-                                        </div>
                                     </div>
-                                    <div className="grid md:grid-cols-2 md:gap-6">
-                                        <div className="relative z-0 w-full mb-6 group">
-                                            <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="floating_phone"
-                                                   id="floating_phone"
-                                                   className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                                   placeholder=" " required/>
-                                            <label htmlFor="floating_phone"
-                                                   className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+
+                                </div>
+                                <div className="grid md:grid-cols-2 md:gap-6">
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <FormInputInsciption placeholder="" value={values.telNumero}
+                                                             onChange={onChangeinput} type="tel" name="telNumero"
+                                                             id="telNumero"
+                                                             errorMessage=""
+                                        />
+                                        <label htmlFor="telNumero"
+                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Tel
-                                                number (+337 77 77 77 77)</label>
-                                        </div>
-                                        <div className="relative z-0 w-full mb-6 group">
-                                            <input type="text" name="floating_company" id="floating_company"
-                                                   className="input-taille block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent
-                                               border-0 border-b-2 border-gray-300 appearance-none dark:text-black
-                                               dark:border-gray-600 dark:focus:border-gray-500 focus:outline-none focus:ring-0
-                                               focus:border-gray-600 peer"
-                                                   placeholder=" " required/>
-                                            <label htmlFor="floating_company"
-                                                   className="peer-focus:font-medium absolute  text-black-500 dark:text-black
+                                            number (+337 77 77 77 77)</label>
+                                    </div>
+                                    <div className="relative z-0 w-full mb-6 group">
+                                        <FormInputInsciption placeholder="" value={values.compagny}
+                                                             onChange={onChangeinput} type="texte" name="compagny"
+                                                             id="compagny"
+                                                             errorMessage="La compagnie doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                                             pattern="^[A-Za-z]{3,16}$"
+                                        />
+                                        <label htmlFor="compagny"
+                                               className="peer-focus:font-medium absolute  text-black-500 dark:text-black
                                                duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0
                                                 peer-focus:text-black-600 peer-focus:dark:text-black-500 peer-placeholder-shown:scale-100
                                                  peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Company
-                                                (Ex. Google)</label>
-                                        </div>
+                                            (Ex. Google)</label>
                                     </div>
-                                    
-                                    <br/>
-                                    <button type="button"
-                                            className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
+                                </div>
+
+                                <br/>
+                                <button type="submit"
+                                        className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
                                         focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg
                                         px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500
                                         dark:hover:bg-[#050708]/30 mr-2 mb-2 input-home w-full">S'inscrire
-                                    </button>
-                                </form>
-                            </div>
+                                </button>
+                            </form>
                         </div>
-
                     </div>
+
                 </div>
-            </section>
-        );
-    }
+            </div>
+        </section>
+    );
 }
 
 export default Inscription;
