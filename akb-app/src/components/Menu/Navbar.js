@@ -13,7 +13,7 @@ function Navbar() {
         <header>
             <a href="/"><h3><img className="img-taille" src="/img/AKB_menu.png" alt="bug"/></h3></a>
             <nav ref={navRef}>
-                <a href="/auth/login">Se Connecter</a>
+                <a href="/connexion">Se Connecter</a>
                 <a href="/">Des questions</a>
                 <a href="/">Louez ma voiture</a>
                 <a href="/about">A propos</a>
