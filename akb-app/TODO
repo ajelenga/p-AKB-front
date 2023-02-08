@@ -1,16 +1,17 @@
-    const
-    dateIN = () => {
-        let today = new Date();
-        let dd = today.getDate();
-        let mm = today.getMonth() + 1; //January is 0!
-        let yyyy = today.getFullYear();
-        if (dd < 10) {
-            dd = '0' + dd
-        }
-        if (mm < 10) {
-            mm = '0' + mm
-        }
-
-        today = yyyy + '-' + mm + '-' + dd;
-        return today;
-    }
+function() {
+  switch (t) {
+    case "info":
+      p.NotificationManager.info("Info message");
+      break;
+    case "success":
+      p.NotificationManager.success("Success message", "Title here");
+      break;
+    case "warning":
+      p.NotificationManager.warning("Warning message", "Close after 3000ms", 3e3);
+      break;
+    case "error":
+      p.NotificationManager.error("Error message", "Click me!", 5e3, function() {
+        alert("callback")
+      })
+  }
+}

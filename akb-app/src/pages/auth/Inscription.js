@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {redirect} from "react-router-dom";
 import Navbar from "../../Component/Menu/Navbar";
 import "../../Styles/inscripion.sass"
 import FormInputInsciption from "./FormInputInsciption";
@@ -48,9 +49,11 @@ const Inscription = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.statutTO === "Inscription effectué") {
+                    redirect("");
                     alert("inscription effectué");
                 } else {
                     alert("erreur dans le form");
+                    redirect("");
                 }
             });
         console.log(values)
@@ -83,7 +86,7 @@ const Inscription = () => {
                                     <FormInputInsciption placeholder="" value={values.emailI}
                                                          onChange={onChangeinput} type="texte" name="emailI"
                                                          id="emailI"
-                                                         errorMessage="Le email doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                                         errorMessage="L'email renseigné n'est pas bon. ex: elemple@example.fr"
                                                          pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
                                     />
                                     <label htmlFor="emailI"

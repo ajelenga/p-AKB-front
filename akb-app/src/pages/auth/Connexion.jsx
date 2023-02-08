@@ -2,8 +2,24 @@ import "../../Styles/login.sass"
 import Navbar from "../../Component/Menu/Navbar";
 import FormInput from "./FormInput";
 import {useState} from "react";
+import 'react-toastify/dist/ReactToastify.css';
+import {toast, ToastContainer} from 'react-toastify';
 
 const Connexion = () => {
+    let val = {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    };
+    const notifyOK = (string) => toast.success(string, val);
+    const notifyKO = (string) => toast.error(string, val);
+    const tes = () => toast.promise();
+
     //const emailRef = useRef()
     const [values, setValues] = useState({
         email: "",
@@ -28,9 +44,10 @@ const Connexion = () => {
             .then((response) => response.json())
             .then((data) => {
                 if (data.statutTO === "user") {
-                    alert("ok connexion");
+                    notifyOK("Connexion OK");
                 } else {
-                    alert("erreur connexion");
+                    notifyKO("Connexion pas bonne");
+
                 }
             });
         console.log(values);
@@ -52,7 +69,7 @@ const Connexion = () => {
                                 <div className="relative z-0 w-full mb-6 group">
                                     <FormInput placeholder="" value={values.email}
                                                onChange={onChangeinput} type="texte" name="email" id="email"
-                                               errorMessage="Le email doit comporter de 3 à 16 caractères et ne doit pas inclure de caractère spécial !"
+                                               errorMessage="L'email renseigné n'est pas bon. ex: elemple@example.fr' !"
                                                pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
 
                                     />
@@ -98,6 +115,7 @@ const Connexion = () => {
 
                 </div>
             </div>
+            <ToastContainer/>
         </section>
 
     )
