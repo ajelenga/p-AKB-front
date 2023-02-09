@@ -5,8 +5,11 @@ import Navbar from "../components/Menu/Navbar";
 import $ from "jquery";
 import {AiTwotoneEnvironment} from "@react-icons/all-files/ai/AiTwotoneEnvironment";
 import FormInputHome from "./FormInputHome";
+import {useNavigate} from 'react-router-dom';
+import {carsDates} from "../services/AutoApi";
 
 function Home() {
+    const navigate = useNavigate();
 
     let today = new Date();
     let dd = today.getDate();
@@ -42,10 +45,18 @@ function Home() {
         setValues({...values, [e.target.name]: e.target.value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(values)
-    }
+
+        try {
+            const response = await carsDates(values);
+            //navigate('/compte/acompte');
+        } catch ({response}) {
+            console.log(response);
+        }
+
+    };
 
 
     return (
