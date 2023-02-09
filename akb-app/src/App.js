@@ -10,7 +10,6 @@ import {hasAuthenticated} from "./services/AuthApi";
 import Auth from "./contexts/Auth";
 import AuthenticatedRouteProfile from "./components/Menu/AuthenticatedRouteProfile";
 import AuthenticatedRouteAcompte from "./components/Menu/AuthenticatedRouteAcompte";
-import AuthenticatedRouteMiseEnLocation from "./components/Menu/AuthenticatedRouteMiseEnLocation";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -32,8 +31,6 @@ function App() {
                             element={<AuthenticatedRouteAcompte/>}
                         />
                         <Route path="/profile" element={<AuthenticatedRouteProfile/>}/>
-                        <Route path="/profile" element={<AuthenticatedRouteMiseEnLocation
-                        />}/>
                     </Routes>
                 </Fragment>
             </BrowserRouter>
