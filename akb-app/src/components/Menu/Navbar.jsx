@@ -52,7 +52,7 @@ function Navbar() {
                 )}
                 <a href="/">Des questions</a>
                 <a href="/">Louez ma voiture</a>
-                <a href="/About.jsx">A propos</a>
+                <a href="/about">A propos</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes/>
                 </button>
