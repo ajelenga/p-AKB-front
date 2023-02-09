@@ -2,15 +2,34 @@ import {useContext, useRef} from "react";
 import {FaBars, FaTimes} from "react-icons/fa";
 import "../../Styles/navbar.sass";
 import Auth from "../../contexts/Auth";
+import {logout} from "../../services/AuthApi";
+import {toast} from "react-toastify";
 
 function Navbar() {
-    const {isAuthenticated} = useContext(Auth);
+    const {isAuthenticated, setIsAuthenticated} = useContext(Auth);
 
     const navRef = useRef();
 
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
     };
+    let val = {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    };
+    const notifyInfo = (string) => toast.info(string, val);
+
+    const handleLogout = () => {
+        logout();
+        setIsAuthenticated(false);
+        notifyInfo('Ravenez vite nous voir')
+    }
 
     return (
         <header>
@@ -28,7 +47,7 @@ function Navbar() {
                 )) || (
                     <>
                         <a href="/compte/locationV">Mon compte</a>
-                        <a href="#">Déconnexion</a>
+                        <a className="link-navbar" onClick={handleLogout}>Déconnexion</a>
                     </>
                 )}
                 <a href="/">Des questions</a>
