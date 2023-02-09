@@ -1,15 +1,15 @@
 import React, {useContext} from "react";
 import {Navigate} from "react-router-dom";
 import Auth from "../../contexts/Auth";
-import Account from "../../pages/compte/Account";
+import Acompte from "../../pages/compte/Acompte";
 
-const AuthenticatedRouteAccount = () => {
+const AuthenticatedRouteAcompte = () => {
     const {isAuthenticated} = useContext(Auth);
     return isAuthenticated ? (
-        <Account/>
+        <Acompte/>
     ) : (
         <Navigate to="/connexion"/>
     )
 }
 
-export default AuthenticatedRouteAccount;
+export default AuthenticatedRouteAcompte;
