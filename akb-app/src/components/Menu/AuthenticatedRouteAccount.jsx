@@ -1,15 +1,15 @@
 import React, {useContext} from "react";
 import {Navigate} from "react-router-dom";
 import Auth from "../../contexts/Auth";
-import MiseEnLocation from "../../pages/compte/MiseEnLocation";
+import Account from "../../pages/compte/Account";
 
-const AuthenticatedRouteLocation = () => {
+const AuthenticatedRouteAccount = () => {
     const {isAuthenticated} = useContext(Auth);
     return isAuthenticated ? (
-        <MiseEnLocation/>
+        <Account/>
     ) : (
         <Navigate to="/connexion"/>
     )
 }
 
-export default AuthenticatedRouteLocation;
+export default AuthenticatedRouteAccount;

@@ -3,7 +3,7 @@ import Navbar from "../../components/Menu/Navbar";
 import Profile from "./Profile";
 
 
-const LocationV = (props) => {
+const Account = (props) => {
     const [curentTab, setCurrentTab] = useState({name: "profile"});
     const [tabs] = useState([
         {tabKey: "profile", tabTitle: "Mon profile"}
@@ -47,4 +47,4 @@ const LocationV = (props) => {
 };
 
 
-export default LocationV;
+export default Account;

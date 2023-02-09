@@ -9,7 +9,7 @@ import Connexion from "./pages/auth/Connexion";
 import {hasAuthenticated} from "./services/AuthApi";
 import Auth from "./contexts/Auth";
 import AuthenticatedRouteProfile from "./components/Menu/AuthenticatedRouteProfile";
-import AuthenticatedRouteLocation from "./components/Menu/AuthenticatedRouteLocation";
+import AuthenticatedRouteAccount from "./components/Menu/AuthenticatedRouteAccount";
 import AuthenticatedRouteMiseEnLocation from "./components/Menu/AuthenticatedRouteMiseEnLocation";
 import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,7 +29,7 @@ function App() {
                         <Route exact path={"*"} element={<Home/>}/>
                         <Route
                             path="/compte/locationV"
-                            element={<AuthenticatedRouteLocation/>}
+                            element={<AuthenticatedRouteAccount/>}
                         />
                         <Route path="/profile" element={<AuthenticatedRouteProfile/>}/>
                         <Route path="/profile" element={<AuthenticatedRouteMiseEnLocation

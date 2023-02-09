@@ -46,7 +46,7 @@ function Navbar() {
                     </>
                 )) || (
                     <>
-                        <a href="/compte/LocationV.jsx">Mon compte</a>
+                        <a href="/compte/Account.jsx">Mon compte</a>
                         <a className="link-navbar" onClick={handleLogout}>Déconnexion</a>
                     </>
                 )}
