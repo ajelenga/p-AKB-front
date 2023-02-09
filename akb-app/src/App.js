@@ -11,11 +11,13 @@ import Auth from "./contexts/Auth";
 import AuthenticatedRouteProfile from "./components/Menu/AuthenticatedRouteProfile";
 import AuthenticatedRouteLocation from "./components/Menu/AuthenticatedRouteLocation";
 import AuthenticatedRouteMiseEnLocation from "./components/Menu/AuthenticatedRouteMiseEnLocation";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
     return (
-        <Auth.Provider value={{isAuthenticated}}>
+        <Auth.Provider value={{isAuthenticated, setIsAuthenticated}}>
             <BrowserRouter>
                 <Fragment>
                     <Routes>
@@ -35,6 +37,7 @@ function App() {
                     </Routes>
                 </Fragment>
             </BrowserRouter>
+            <ToastContainer/>
         </Auth.Provider>
     );
 }

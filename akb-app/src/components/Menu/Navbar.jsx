@@ -15,7 +15,7 @@ function Navbar() {
     };
     let val = {
         position: "top-right",
-        autoClose: 2000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -28,7 +28,7 @@ function Navbar() {
     const handleLogout = () => {
         logout();
         setIsAuthenticated(false);
-        notifyInfo('Ravenez vite nous voir')
+        notifyInfo('Revenez vite nous voir 👋!')
     }
 
     return (
@@ -46,13 +46,13 @@ function Navbar() {
                     </>
                 )) || (
                     <>
-                        <a href="/compte/locationV">Mon compte</a>
+                        <a href="/compte/LocationV.jsx">Mon compte</a>
                         <a className="link-navbar" onClick={handleLogout}>Déconnexion</a>
                     </>
                 )}
                 <a href="/">Des questions</a>
                 <a href="/">Louez ma voiture</a>
-                <a href="/about">A propos</a>
+                <a href="/About.jsx">A propos</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes/>
                 </button>
