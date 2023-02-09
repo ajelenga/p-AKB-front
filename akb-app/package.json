@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-tailwind/react": "^1.2.5",
     "@paypal/react-paypal-js": "^7.8.2",
     "@react-buddy/ide-toolbox": "^2.3.1",
     "@react-icons/all-files": "^4.1.0",

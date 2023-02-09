@@ -21,6 +21,7 @@ function App() {
             <BrowserRouter>
                 <Fragment>
                     <Routes>
+
                         <Route exact path={"/paiement"} element={<Paiement/>}/>
                         <Route exact path={"/"} element={<Home/>}/>
                         <Route exact path={"/about"} element={<About/>}/>
