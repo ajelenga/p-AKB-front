@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import About from "./pages/About";
 import CarsDates from "./pages/CarsDates";
+import Example from "./pages/Example";
 import Inscription from "./pages/auth/Inscription";
 import Paiement from "./pages/paiement/Paiement";
 import Connexion from "./pages/auth/Connexion";
@@ -28,6 +29,7 @@ function App() {
                         <Route exact path={"/connexion"} element={<Connexion/>}/>
                         <Route exact path={"/inscription"} element={<Inscription/>}/>
                         <Route exact path={"/cars_dates"} element={<CarsDates/>}/>
+                        <Route exact path={"/alph"} element={<Example/>}/>
                         <Route exact path={"*"} element={<Home/>}/>
                         <Route
                             path="/compte/acompte"
