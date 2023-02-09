@@ -6,7 +6,6 @@ import $ from "jquery";
 import {AiTwotoneEnvironment} from "@react-icons/all-files/ai/AiTwotoneEnvironment";
 import FormInputHome from "./FormInputHome";
 import {useNavigate} from 'react-router-dom';
-import {carsDates} from "../services/AutoApi";
 
 function Home() {
     const navigate = useNavigate();
@@ -52,7 +51,7 @@ function Home() {
         try {
             //const responseCars = await carsDates(values);
             const responseCars = "responseCars";
-            navigate('/cars_dates',{state:"responseCars"});
+            navigate('/cars_dates', {state: {responseCars}});
 
             //console.log(responseCars)
         } catch ({responseCars}) {

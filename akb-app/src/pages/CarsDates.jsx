@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Navbar from "../components/Menu/Navbar";
 import "../Styles/carsDates.sass"
-import { Fragment } from "react";
-import { Typography } from "@material-tailwind/react";
+import {Typography} from "@material-tailwind/react";
+import {useLocation} from "react-router";
 
-const CarsDates = (props) => {
-    console.log(props);
+function CarsDates() {
+    const location = useLocation();
+    console.log(location.state);
     return (
         <section className="home_LOGIN">
             <Navbar/>
@@ -14,10 +15,10 @@ const CarsDates = (props) => {
                     <div className="container search_hero__content_login">
                         <div className="home-page-cars rounded overflow-hidden">
                             <div className="text-center">
-                            <Fragment>
-                            <Typography variant="h5">Liste des véhicules disponiles la date du $*</Typography>
-                            </Fragment>
-                            </div>  
+                                <Fragment>
+                                    <Typography variant="h5">Liste des véhicules disponiles la date du $*</Typography>
+                                </Fragment>
+                            </div>
                             <div
                                 className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
                                 <div className="rounded overflow-hidden shadow-lg">
