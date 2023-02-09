@@ -39,7 +39,7 @@ const Connexion = () => {
         try {
             const response = await login(values);
             setIsAuthenticated(response);
-            navigate('/compte/locationV');
+            navigate('/compte/acompte');
             notifyOK('Hey 👋, content de te revoir ');
         } catch ({response}) {
             notifyKO('Désolé la connexion est pas possible - ID/MDP ?');
@@ -50,7 +50,7 @@ const Connexion = () => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            navigate('/compte/locationV');
+            navigate('/compte/acompte');
         }
     });
 
