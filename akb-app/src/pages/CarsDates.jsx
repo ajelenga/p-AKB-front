@@ -4,7 +4,8 @@ import "../Styles/carsDates.sass"
 import { Fragment } from "react";
 import { Typography } from "@material-tailwind/react";
 
-const AllAuto = () => {
+const CarsDates = (props) => {
+    console.log(props);
     return (
         <section className="home_LOGIN">
             <Navbar/>
@@ -157,4 +158,4 @@ const AllAuto = () => {
     );
 }
 
-export default AllAuto;
+export default CarsDates;
