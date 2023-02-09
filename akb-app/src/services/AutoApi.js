@@ -3,7 +3,7 @@ import axios from 'axios';
 //{address_icon: 'rrr', datefield1: '2023-02-10', datefield2: '2023-02-12'}
 export function carsDates(credentials) {
     return axios
-        .get('http://localhost:8083/RequestReservation', {
+        .post('http://localhost:8083/RequestReservation', {
             dateDebut: credentials.datefield1,
             dateFin: credentials.datefield2,
             addressePrise: credentials.address_icon,
