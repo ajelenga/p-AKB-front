@@ -1,24 +1,17 @@
 import "../../Styles/login.sass"
-import Navbar from "../../Component/Menu/Navbar";
+import Navbar from "../../components/Menu/Navbar";
 import FormInput from "./FormInput";
-import {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import 'react-toastify/dist/ReactToastify.css';
-import {toast, ToastContainer} from 'react-toastify';
+import Auth from "../../contexts/Auth";
+import {useNavigate} from 'react-router-dom';
+import {login} from "../../services/AuthApi";
+import {toast} from "react-toastify";
+
 
 const Connexion = () => {
-    let val = {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-    };
-    const notifyOK = (string) => toast.success(string, val);
-    const notifyKO = (string) => toast.error(string, val);
-    const tes = () => toast.promise();
+    const {isAuthenticated, setIsAuthenticated} = useContext(Auth);
+    const navigate = useNavigate();
 
     //const emailRef = useRef()
     const [values, setValues] = useState({
@@ -28,31 +21,38 @@ const Connexion = () => {
     const onChangeinput = (e) => {
         setValues({...values, [e.target.name]: e.target.value})
     }
-
-    const handleSubmit = (e) => {
+    let val = {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    };
+    const notifyOK = (string) => toast.success(string, val);
+    const notifyKO = (string) => toast.error(string, val);
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const requestOptions = {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                email: values.email,
-                mot_de_pass: values.password,
-            }),
-        };
-        fetch("http://localhost:8083/connexionUser", requestOptions)
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.statutTO === "user") {
-                    notifyOK("Connexion OK");
-                } else {
-                    notifyKO("Connexion pas bonne");
+        try {
+            const response = await login(values);
+            setIsAuthenticated(response);
+            navigate('/compte/locationV');
+            notifyOK('Hey 👋, content de te revoir ');
+        } catch ({response}) {
+            notifyKO('Désolé la connexion est pas possible - ID/MDP ?');
+            console.log(response);
+        }
 
-                }
-            });
-        console.log(values);
     };
 
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/compte/locationV');
+        }
+    });
 
     return (
         <section className="home_LOGIN">
@@ -106,7 +106,7 @@ const Connexion = () => {
                                     </div>
                                     <div>
                                         <a
-                                            href="/auth/inscription"><font>S'inscrire?</font></a>
+                                            href="/Inscription.jsx"><font>S'inscrire?</font></a>
                                     </div>
                                 </div>
                             </form>
@@ -115,7 +115,6 @@ const Connexion = () => {
 
                 </div>
             </div>
-            <ToastContainer/>
         </section>
 
     )
