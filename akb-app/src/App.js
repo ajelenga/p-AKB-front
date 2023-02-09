@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import About from "./pages/About";
-import AllAuto from "./pages/AllAuto";
+import CarsDates from "./pages/CarsDates";
 import Inscription from "./pages/auth/Inscription";
 import Paiement from "./pages/paiement/Paiement";
 import Connexion from "./pages/auth/Connexion";
@@ -26,7 +26,7 @@ function App() {
                         <Route exact path={"/about"} element={<About/>}/>
                         <Route exact path={"/connexion"} element={<Connexion/>}/>
                         <Route exact path={"/inscription"} element={<Inscription/>}/>
-                        <Route exact path={"/allAuto"} element={<AllAuto/>}/>
+                        <Route exact path={"/cars_dates"} element={<CarsDates/>}/>
                         <Route exact path={"*"} element={<Home/>}/>
                         <Route
                             path="/compte/acompte"
