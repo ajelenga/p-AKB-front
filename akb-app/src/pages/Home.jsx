@@ -50,10 +50,11 @@ function Home() {
         console.log(values)
 
         try {
-            const response = await carsDates(values);
+            const responseCars = await carsDates(values);
             //navigate('/compte/acompte');
-        } catch ({response}) {
-            console.log(response);
+            console.log(responseCars)
+        } catch ({responseCars}) {
+            console.log(responseCars);
         }
 
     };
