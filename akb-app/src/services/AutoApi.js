@@ -8,13 +8,12 @@ export function AutoApiF(credentials) {
             dateFin: credentials.datefield2,
             addressePrise: credentials.address_icon,
         })
-        /*
         .then(response => {
             console.log(response.data);
         })
         .catch(function (error) {
             console.error(error);
-        });*/
+        });
 }
 
 export function AutoApiFTest() {

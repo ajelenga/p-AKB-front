@@ -14,19 +14,14 @@ export default function CarsDates() {
     const location = useLocation();
     const test2 = location.state;
     const callApi = () => {
-        AutoApiF(test2).then(response => {
-            console.log(response.data);
-            setData(response.data)
-        })
-            .catch(function (error) {
-                console.error(error);
-            })
+        const response = await AutoApiF(test2);
+            setData(response);
     }
 
     useEffect(() => {
         callApi();
     }, [])
-    
+
     return (
         <section className="home_LOGIN">
             <Navbar/>
