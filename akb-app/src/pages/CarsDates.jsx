@@ -4,9 +4,10 @@ import "../Styles/carsDates.sass"
 import {Typography} from "@material-tailwind/react";
 import {useLocation} from "react-router";
 
-function CarsDates() {
+function CarsDates(props) {
     const location = useLocation();
     console.log(location.state);
+    console.log(props.cc)
     return (
         <section className="home_LOGIN">
             <Navbar/>
