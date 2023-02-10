@@ -28,7 +28,7 @@ function App() {
                         <Route exact path={"/about"} element={<About/>}/>
                         <Route exact path={"/connexion"} element={<Connexion/>}/>
                         <Route exact path={"/inscription"} element={<Inscription/>}/>
-                        <Route exact path={"/cars_dates"} element={<CarsDates cc/>}/>
+                        <Route exact path={"/cars_dates"} element={<CarsDates/>}/>
                         <Route exact path={"/alph"} element={<Example/>}/>
                         <Route exact path={"*"} element={<Home/>}/>
                         <Route

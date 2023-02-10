@@ -6,7 +6,6 @@ import $ from "jquery";
 import {AiTwotoneEnvironment} from "@react-icons/all-files/ai/AiTwotoneEnvironment";
 import FormInputHome from "./FormInputHome";
 import {useNavigate} from 'react-router-dom';
-import {carsDatesApi} from "../services/AutoApi";
 
 function Home() {
     const navigate = useNavigate();
@@ -50,8 +49,68 @@ function Home() {
         console.log(values)
 
         try {
-            const responseCars = await carsDatesApi(values);
-            navigate('/cars_dates');
+            //const responseCars = await AutoApiFTest()
+            const responseCars =
+                [
+                    {
+                        "idrsv": 7,
+                        "numeroreservationrsv": 32,
+                        "datedebutlocationrsv": "2023-01-18T23:00:00.000+00:00",
+                        "adressePriseVehicule": "brest",
+                        "datefinlocationrsv": "2023-01-25T23:00:00.000+00:00",
+                        "cautionrsv": 23.0,
+                        "paiementrsv": 233.0,
+                        "vehicule": {
+                            "idvcl": 3,
+                            "marquevcl": "aaaa",
+                            "modelvcl": "aaa",
+                            "serievcl": "aaaa",
+                            "typemoteurvcl": "aaa",
+                            "reservoirvcl": "aaaa",
+                            "kmvcl": "aaa",
+                            "couleurvcl": "aaa",
+                            "descriptionvcl": "aaaa",
+                            "boitevitessevcl": "aaaa",
+                            "statutvcl": "aaa",
+                            "datemiseligne": "2023-01-06T20:42:24.000+00:00",
+                            "datedebutdisponibilite": "2023-02-01T20:42:24.000+00:00",
+                            "datefindisponibilite": "2023-03-31T19:42:24.000+00:00",
+                            "cautionvcl": 122.0,
+                            "prixvcl": 23.0,
+                            "compte": null
+                        }
+                    },
+                    {
+                        "idrsv": 8,
+                        "numeroreservationrsv": 32,
+                        "datedebutlocationrsv": "2023-01-18T23:00:00.000+00:00",
+                        "adressePriseVehicule": "brest",
+                        "datefinlocationrsv": "2023-01-25T23:00:00.000+00:00",
+                        "cautionrsv": 23.0,
+                        "paiementrsv": 233.0,
+                        "vehicule": {
+                            "idvcl": 3,
+                            "marquevcl": "aaaa",
+                            "modelvcl": "aaa",
+                            "serievcl": "aaaa",
+                            "typemoteurvcl": "aaa",
+                            "reservoirvcl": "aaaa",
+                            "kmvcl": "aaa",
+                            "couleurvcl": "aaa",
+                            "descriptionvcl": "aaaa",
+                            "boitevitessevcl": "aaaa",
+                            "statutvcl": "aaa",
+                            "datemiseligne": "2023-01-06T20:42:24.000+00:00",
+                            "datedebutdisponibilite": "2023-02-01T20:42:24.000+00:00",
+                            "datefindisponibilite": "2023-03-31T19:42:24.000+00:00",
+                            "cautionvcl": 122.0,
+                            "prixvcl": 23.0,
+                            "compte": null
+                        }
+                    }
+                ]
+            navigate('/cars_dates', {state: responseCars});
+
             //console.log(responseCars)
         } catch ({responseCars}) {
             //console.log(responseCars);
