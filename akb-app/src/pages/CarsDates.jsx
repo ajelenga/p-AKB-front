@@ -1,10 +1,10 @@
 import React, {Fragment, useEffect} from 'react';
 import Navbar from "../components/Menu/Navbar";
 import "../Styles/carsDates.sass"
-import {Typography } from "@material-tailwind/react";
+import {Typography} from "@material-tailwind/react";
 import {useLocation} from "react-router";
-import { AutoApiF } from '../services/AutoApi';
-import { FcApproval } from "react-icons/fc";
+import {AutoApiF} from '../services/AutoApi';
+import {FcApproval} from "react-icons/fc";
 
 export default function CarsDates() {
     const responseCars2 = [
@@ -68,21 +68,19 @@ export default function CarsDates() {
 
     const location = useLocation();
     const test2 = location.state;
-    const callApi =()=>{
+    const callApi = () => {
         AutoApiF(test2).then(response => {
             console.log(response.data);
         })
-        .catch(function (error) {
-            console.error(error);
-        })
+            .catch(function (error) {
+                console.error(error);
+            })
     }
 
     useEffect(() => {
         callApi();
     }, [])
-    
 
-    
 
     const test = responseCars2;
     return (
@@ -110,25 +108,26 @@ export default function CarsDates() {
                                             Kilométrage illimité    
                                             </p>
                                         </span>
-                                        <span class="flex flex-row justify-start">
+                                            <span className="flex flex-row justify-start">
                                             <span><FcApproval/></span>
                                             <p className="text-gray-600 text-sm ml-1">
                                             Responsabilité civile   
                                             </p>
                                         </span>
-                                        <span class="flex flex-row justify-start">
+                                            <span class="flex flex-row justify-start">
                                             <span><FcApproval/></span>
                                             <p className="text-gray-600 text-sm ml-1">
                                             Kilométrage illimité  
                                             </p>
                                         </span>
-                                        <span class="flex flex-row justify-start">
+                                            <span className="flex flex-row justify-start">
                                             <span><FcApproval/></span>
                                             <p className="text-gray-600 text-sm ml-1">
                                                 Annulation gratuite   
                                             </p>
                                         </span>
-                                    </div>
+
+                                        </div>
                                         <div className="px-6 pt-4 pb-2">
                                     <span
                                         className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Prix: {content.vehicule.prixvcl}€/Kmh</span>
@@ -136,17 +135,17 @@ export default function CarsDates() {
                                                 className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
                                             <span
                                                 className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                                        <div className="font-bold text-xl mb-2">
-                                    
-                                        <button 
-                                        className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
+                                            <div className="font-bold text-xl mb-2">
+
+                                                <button
+                                                    className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
                                         focus:outline-none focus:ring-[#24292F]/50 text-sm font-semibold rounded-lg 
                                         px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500
                                         dark:hover:bg-[#050708]/30 mr-2 mb-2  ">Réserver
-                                        </button>
+                                                </button>
+                                            </div>
                                         </div>
-                                        </div>
-                                        
+
                                     </div>
                                 ))
                                 }
