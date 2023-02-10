@@ -5,72 +5,18 @@ import {Typography} from "@material-tailwind/react";
 import {useLocation} from "react-router";
 import {AutoApiF} from '../services/AutoApi';
 import {FcApproval} from "react-icons/fc";
+import { useState } from 'react';
 
 export default function CarsDates() {
-    const responseCars2 = [
-        {
-            "idrsv": 7,
-            "numeroreservationrsv": 32,
-            "datedebutlocationrsv": "2023-01-18T23:00:00.000+00:00",
-            "adressePriseVehicule": "brest",
-            "datefinlocationrsv": "2023-01-25T23:00:00.000+00:00",
-            "cautionrsv": 23.0,
-            "paiementrsv": 233.0,
-            "vehicule": {
-                "idvcl": 3,
-                "marquevcl": "aaaa",
-                "modelvcl": "aaa",
-                "serievcl": "aaaa",
-                "typemoteurvcl": "aaa",
-                "reservoirvcl": "aaaa",
-                "kmvcl": "aaa",
-                "couleurvcl": "aaa",
-                "descriptionvcl": "aaaa",
-                "boitevitessevcl": "aaaa",
-                "statutvcl": "aaa",
-                "datemiseligne": "2023-01-06T20:42:24.000+00:00",
-                "datedebutdisponibilite": "2023-02-01T20:42:24.000+00:00",
-                "datefindisponibilite": "2023-03-31T19:42:24.000+00:00",
-                "cautionvcl": 122.0,
-                "prixvcl": 23.0,
-                "compte": null
-            }
-        },
-        {
-            "idrsv": 8,
-            "numeroreservationrsv": 32,
-            "datedebutlocationrsv": "2023-01-18T23:00:00.000+00:00",
-            "adressePriseVehicule": "brest",
-            "datefinlocationrsv": "2023-01-25T23:00:00.000+00:00",
-            "cautionrsv": 23.0,
-            "paiementrsv": 233.0,
-            "vehicule": {
-                "idvcl": 3,
-                "marquevcl": "aaaa",
-                "modelvcl": "aaa",
-                "serievcl": "aaaa",
-                "typemoteurvcl": "aaa",
-                "reservoirvcl": "aaaa",
-                "kmvcl": "aaa",
-                "couleurvcl": "aaa",
-                "descriptionvcl": "aaaa",
-                "boitevitessevcl": "aaaa",
-                "statutvcl": "aaa",
-                "datemiseligne": "2023-01-06T20:42:24.000+00:00",
-                "datedebutdisponibilite": "2023-02-01T20:42:24.000+00:00",
-                "datefindisponibilite": "2023-03-31T19:42:24.000+00:00",
-                "cautionvcl": 122.0,
-                "prixvcl": 23.0,
-                "compte": null
-            }
-        }
-    ]
+    const [data, setData] = useState([]);
+
 
     const location = useLocation();
     const test2 = location.state;
     const callApi = () => {
         AutoApiF(test2).then(response => {
             console.log(response.data);
+            setData(response.data)
         })
             .catch(function (error) {
                 console.error(error);
@@ -97,44 +43,53 @@ export default function CarsDates() {
                             </div>
                             <div
                                 className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-                                {test.map(content => (
+                                {data.map(content => (
 
                                     <div className="rounded overflow-hidden shadow-lg" key={content.idrsv}>
                                         <img className="w-full" src="/mountain.jpg" alt="Photo voiture"/>
                                         <div className="px-6 py-4">
                                         <span class="flex flex-row justify-start">
                                             <span><FcApproval/></span>
-                                            <p className="text-gray-600 text-sm ml-1">
+                                            <p className="text-gray-600 text-xs ml-1">
                                             Kilométrage illimité    
                                             </p>
                                         </span>
                                             <span className="flex flex-row justify-start">
                                             <span><FcApproval/></span>
-                                            <p className="text-gray-600 text-sm ml-1">
+                                            <p className="text-gray-600 text-xs ml-1">
                                             Responsabilité civile   
                                             </p>
                                         </span>
                                             <span class="flex flex-row justify-start">
                                             <span><FcApproval/></span>
-                                            <p className="text-gray-600 text-sm ml-1">
+                                            <p className="text-gray-600 text-xs ml-1">
                                             Kilométrage illimité  
                                             </p>
                                         </span>
                                             <span className="flex flex-row justify-start">
                                             <span><FcApproval/></span>
-                                            <p className="text-gray-600 text-sm ml-1">
+                                            <p className="text-gray-600 text-xs ml-1">
                                                 Annulation gratuite   
                                             </p>
                                         </span>
-
+                                        <hr class="h-px my-3 bg-gray-100 border-0 dark:bg-gray-300 hr-8"></hr>
+                                        <span className="flex flex-row">
+                                        <span
+                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">{content.vehicule.boitevitessevcl}</span>
+                                                <span
+                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">Climatisation</span>
+                                                <span
+                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">4 places</span>
+                                                <span
+                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">3 portes</span>
+                                        </span>
+                                        <hr class="h-px my-3 bg-gray-100 border-0 dark:bg-gray-300 hr-8"></hr>
                                         </div>
+                                        
                                         <div className="px-6 pt-4 pb-2">
                                     <span
-                                        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Prix: {content.vehicule.prixvcl}€/Kmh</span>
-                                            <span
-                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                                            <span
-                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                                        className="inline-block  rounded-full  py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Prix: {content.vehicule.prixvcl}€/Kmh</span>
+                                            
                                             <div className="font-bold text-xl mb-2">
 
                                                 <button
