@@ -1,26 +1,27 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import Navbar from "../components/Menu/Navbar";
 import "../Styles/carsDates.sass"
 import {Typography} from "@material-tailwind/react";
 import {useLocation} from "react-router";
 import {AutoApiF} from '../services/AutoApi';
 import {FcApproval} from "react-icons/fc";
-import { useState } from 'react';
 
 export default function CarsDates() {
     const [data, setData] = useState([]);
 
-
     const location = useLocation();
     const test2 = location.state;
+    console.log("test2");
+    console.log(test2);
     const callApi = () => {
-        const response = await AutoApiF(test2);
-            setData(response);
-    }
+        const response = AutoApiF(test2);
+        console.log(response);
+    };
 
     useEffect(() => {
+        console.log("useEfect");
         callApi();
-    }, [])
+    }, []);
 
     return (
         <section className="home_LOGIN">
@@ -41,7 +42,7 @@ export default function CarsDates() {
                                     <div className="rounded overflow-hidden shadow-lg" key={content.idrsv}>
                                         <img className="w-full" src="/mountain.jpg" alt="Photo voiture"/>
                                         <div className="px-6 py-4">
-                                        <span class="flex flex-row justify-start">
+                                        <span className="flex flex-row justify-start">
                                             <span><FcApproval/></span>
                                             <p className="text-gray-600 text-xs ml-1">
                                             Kilométrage illimité    
@@ -65,24 +66,24 @@ export default function CarsDates() {
                                                 Annulation gratuite   
                                             </p>
                                         </span>
-                                        <hr class="h-px my-3 bg-gray-100 border-0 dark:bg-gray-300 hr-8"></hr>
-                                        <span className="flex flex-row">
+                                            <hr class="h-px my-3 bg-gray-100 border-0 dark:bg-gray-300 hr-8"></hr>
+                                            <span className="flex flex-row">
                                         <span
-                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">{content.vehicule.boitevitessevcl}</span>
+                                            className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">{content.vehicule.boitevitessevcl}</span>
                                                 <span
-                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">Climatisation</span>
+                                                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">Climatisation</span>
                                                 <span
-                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">4 places</span>
+                                                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">4 places</span>
                                                 <span
-                                                className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">3 portes</span>
+                                                    className="inline-block bg-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 mr-2 mb-2">3 portes</span>
                                         </span>
-                                        <hr class="h-px my-3 bg-gray-100 border-0 dark:bg-gray-300 hr-8"></hr>
+                                            <hr className="h-px my-3 bg-gray-100 border-0 dark:bg-gray-300 hr-8"></hr>
                                         </div>
-                                        
+
                                         <div className="px-6 pt-4 pb-2">
                                     <span
                                         className="inline-block  rounded-full  py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">Prix: {content.vehicule.prixvcl}€/Kmh</span>
-                                            
+
                                             <div className="font-bold text-xl mb-2">
 
                                                 <button
