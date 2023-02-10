@@ -26,9 +26,7 @@ export default function CarsDates() {
     useEffect(() => {
         callApi();
     }, [])
-
-
-    const test = responseCars2;
+    
     return (
         <section className="home_LOGIN">
             <Navbar/>
