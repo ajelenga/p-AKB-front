@@ -50,10 +50,12 @@ export default function CarsDates() {
                     key={content.idTO}
                   >
                     <img
-                      className="w-full"
-                      src="/mountain.jpg"
-                      alt="Photo voiture"
+                      src="https://upload.wikimedia.org/wikipedia/commons/0/06/Mazda_CX5.JPG"
+                      alt="photo du vehicule"
+                      width="100%"
+                      height="100%"
                     />
+
                     <div className="px-6 py-4">
                       <span className="flex flex-row justify-start">
                         <span>
