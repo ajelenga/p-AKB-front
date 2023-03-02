@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import {redirect} from "react-router-dom";
 import Navbar from "../../components/Menu/Navbar";
 import "../../Styles/inscripion.sass"
 import FormInputInsciption from "./FormInputInsciption";
+import {toast} from "react-toastify";
 
 const Inscription = () => {
 
@@ -20,6 +20,24 @@ const Inscription = () => {
     })
     const onChangeinput = (e) => {
         setValues({...values, [e.target.name]: e.target.value})
+    }
+    let val = {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    };
+
+    function notifyOKI(string) {
+        toast.success(string, val);
+    }
+
+    function notifyKOI(string) {
+        toast.error(string, val);
     }
 
     const handleSubmit = (e) => {
@@ -40,20 +58,21 @@ const Inscription = () => {
                 "sexeusr": values.sexe
             }
         }
+        let nomp = values.nom;
         const requestOptions = {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(data),
         };
-        fetch("http://localhost:8083/inscriptionUtilisateur", requestOptions)
+        fetch("http://localhost:8084/inscriptionUtilisateur", requestOptions)
             .then((response) => response.json())
             .then((data) => {
+                console.log(data);
                 if (data.statutTO === "Inscription effectué") {
-                    redirect("");
-                    alert("inscription effectué");
+                    notifyOKI("inscription" + nomp + "effectué");
                 } else {
-                    alert("erreur dans le form");
-                    redirect("");
+                    notifyKOI(data.statutTO + " : " + data.commentaireTO);
+
                 }
             });
         console.log(values)
