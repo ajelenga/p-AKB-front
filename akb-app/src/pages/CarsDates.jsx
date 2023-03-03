@@ -5,6 +5,7 @@ import { useLocation } from "react-router";
 import Navbar from "../components/Menu/Navbar";
 import { AutoApiF } from "../services/AutoApi";
 import "../Styles/carsDates.sass";
+import {useNavigate} from 'react-router-dom';
 
 export default function CarsDates() {
   const [data, setData] = useState([]);
@@ -30,10 +31,15 @@ export default function CarsDates() {
     callApi();
   }, []);
 
+  const [valuesCars, setValues] = useState({
+    data
+})
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("test le boutton réserver")
-    //navigate('/cars_dates', {state: values});
+    console.log(valuesCars);
+    //navigate('/cars_reserver', {state: values});
 };
 
   return (
