@@ -33,6 +33,7 @@ const CarsReserver = () => {
                             <div>
                                 <section className="dark:bg-gray-800 dark:text-gray-100 rounded overflow-hidden">
                                     {data.map(content => (
+                                        
 
                                         <div
                                             className="container flex flex-col-reverse mx-auto lg:flex-row"
