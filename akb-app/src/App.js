@@ -16,6 +16,7 @@ import {ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import BlogPostQuestion from "./pages/BlogPostQuestion";
 import CarsReserver from "./pages/CarsReserver";
+import PageError from "./pages/PageError";
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(hasAuthenticated());
@@ -34,7 +35,7 @@ function App() {
                         <Route exact path={"/cars_reserver"} element={<CarsReserver/>}/>
                         <Route exact path={"/questions"} element={<BlogPostQuestion/>}/>
                         <Route exact path={"/alph"} element={<Example/>}/>
-                        <Route exact path={"*"} element={<Home/>}/>
+                        <Route exact path={"*"} element={<PageError/>}/>
                         <Route
                             path="/compte/acompte"
                             element={<AuthenticatedRouteAcompte/>}
