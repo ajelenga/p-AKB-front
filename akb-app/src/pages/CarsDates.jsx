@@ -136,7 +136,7 @@ export default function CarsDates() {
                                         focus:outline-none focus:ring-[#24292F]/50 text-sm font-semibold rounded-lg 
                                         px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500
                                         dark:hover:bg-[#050708]/30 mr-2 mb-2  "
-                                                    onClick={handleClick(content.vehiculeTO)}
+                                                    onClick={() => handleClick(content.vehiculeTO)}
                                                 >
                                                     Réserver
                                                 </button>
