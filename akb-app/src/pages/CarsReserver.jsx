@@ -1,8 +1,20 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState } from "react";
 import Navbar from "../components/Menu/Navbar";
+import { useLocation } from "react-router";
 import "../Styles/carsDates.sass";
 
 const CarsReserver = () => {
+    const location = useLocation();
+    const valueLocation = location.state;
+    
+    const callApi = () => {
+        console.log("coucou");
+        console.log(valueLocation);
+      };
+    useEffect(() => {
+        //console.log("useEfect");
+        callApi();
+      }, []);
     return (
         <section className="home_LOGIN">
             <Navbar/>
