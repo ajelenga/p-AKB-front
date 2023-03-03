@@ -64,7 +64,7 @@ const CarsReserver = () => {
 
                             <button
                                 className="px-8 py-3 font-semibold rounded text-white bg-[#24292F] hover:bg-[#24292F]/90"
-                                onClick={() => navigate("/")}>Retour à la page d'accueil
+                                onClick={() => navigate(-1)}>Retour à la page d'accueil
                             </button>
 
                         </div>
