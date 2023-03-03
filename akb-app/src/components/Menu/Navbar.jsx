@@ -50,7 +50,7 @@ function Navbar() {
                         <a className="link-navbar" onClick={handleLogout}>Déconnexion</a>
                     </>
                 )}
-                <a href="/">Des questions</a>
+                <a href="/questions">Des questions</a>
                 <a href="/">Louez ma voiture</a>
                 <a href="/about">A propos</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>

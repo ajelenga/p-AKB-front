@@ -2,7 +2,6 @@ import "../../Styles/login.sass"
 import Navbar from "../../components/Menu/Navbar";
 import FormInput from "./FormInput";
 import React, {useContext, useEffect, useState} from "react";
-import 'react-toastify/dist/ReactToastify.css';
 import Auth from "../../contexts/Auth";
 import {useNavigate} from 'react-router-dom';
 import {login} from "../../services/AuthApi";
@@ -106,7 +105,7 @@ const Connexion = () => {
                                     </div>
                                     <div>
                                         <a
-                                            href="/Inscription.jsx"><font>S'inscrire?</font></a>
+                                            href="/inscription"><font>S'inscrire?</font></a>
                                     </div>
                                 </div>
                             </form>

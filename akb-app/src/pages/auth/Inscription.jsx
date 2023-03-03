@@ -3,8 +3,10 @@ import Navbar from "../../components/Menu/Navbar";
 import "../../Styles/inscripion.sass"
 import FormInputInsciption from "./FormInputInsciption";
 import {toast} from "react-toastify";
+import {useNavigate} from 'react-router-dom';
 
 const Inscription = () => {
+    const navigate = useNavigate();
 
     const [values, setValues] = useState({
         sexe: "Madame",
@@ -21,7 +23,7 @@ const Inscription = () => {
     const onChangeinput = (e) => {
         setValues({...values, [e.target.name]: e.target.value})
     }
-    let val = {
+    let val1 = {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -31,14 +33,6 @@ const Inscription = () => {
         progress: undefined,
         theme: "colored",
     };
-
-    function notifyOKI(string) {
-        toast.success(string, val);
-    }
-
-    function notifyKOI(string) {
-        toast.error(string, val);
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -64,14 +58,16 @@ const Inscription = () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(data),
         };
+        const notifyOK = (string) => toast.success(string, val1);
+        const notifyKO = (string) => toast.error(string, val1);
         fetch("http://localhost:8084/inscriptionUtilisateur", requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
-                if (data.statutTO === "Inscription effectué") {
-                    notifyOKI("inscription" + nomp + "effectué");
+                if (data.statutTO === "Inscription utilisateur effectué") {
+                    navigate('/connexion');
+                    notifyOK("inscription: " + nomp + "effectué");
                 } else {
-                    notifyKOI(data.statutTO + " : " + data.commentaireTO);
+                    notifyKO(data.statutTO + "ko : " + data.commentaireTO);
 
                 }
             });
