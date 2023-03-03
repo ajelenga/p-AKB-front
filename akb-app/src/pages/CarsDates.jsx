@@ -11,9 +11,9 @@ export default function CarsDates() {
 
   const location = useLocation();
   const test2 = location.state;
-  console.log("test2");
-  console.log(test2.datefield1);
-  console.log(test2.datefield2);
+  //console.log("test2");
+  //console.log(test2.datefield1);
+  //console.log(test2.datefield2);
   const callApi = () => {
     AutoApiF(test2)
       .then((response) => {
@@ -26,7 +26,7 @@ export default function CarsDates() {
   };
 
   useEffect(() => {
-    console.log("useEfect");
+    //console.log("useEfect");
     callApi();
   }, []);
 
@@ -40,7 +40,7 @@ export default function CarsDates() {
               <div className="text-center">
                 <Fragment>
                   <Typography variant="h5">
-                    Liste des véhicules disponiles la date du $*
+                    Liste des véhicules disponiles à {test2.address_icon} la date du {test2.datefield1} au {test2.datefield2}
                   </Typography>
                 </Fragment>
               </div>
