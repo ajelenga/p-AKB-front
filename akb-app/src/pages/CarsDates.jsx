@@ -13,7 +13,7 @@ export default function CarsDates() {
 
   const location = useLocation();
   const test2 = location.state;
-  const contentData;
+
   //console.log("test2");
   //console.log(test2.datefield1);
   //console.log(test2.datefield2);
@@ -22,7 +22,7 @@ export default function CarsDates() {
       .then((response) => {
         console.log(response.data);
         setData(response.data);
-        setValuesCars=response.data;
+        setValuesCars = response.data;
       })
       .catch(function (error) {
         console.error(error);
@@ -34,11 +34,9 @@ export default function CarsDates() {
     callApi();
   }, []);
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("test le boutton réserver")
+    console.log("test le boutton réserver");
     console.log(ValuesCars);
     //navigate('/cars_reserver', {state: ValuesCars});
 };
@@ -53,7 +51,8 @@ export default function CarsDates() {
               <div className="text-center">
                 <Fragment>
                   <Typography variant="h5">
-                    Liste des véhicules disponiles à {test2.address_icon} - {test2.datefield1} au {test2.datefield2}
+                    Liste des véhicules disponiles à {test2.address_icon} -{" "}
+                    {test2.datefield1} au {test2.datefield2}
                   </Typography>
                 </Fragment>
               </div>
@@ -64,7 +63,7 @@ export default function CarsDates() {
                     key={content.idTO}
                   >
                     <img
-                      src="https://upload.wikimedia.org/wikipedia/commons/0/06/Mazda_CX5.JPG"
+                      src={content.vehiculeTO.descriptionvclTO}
                       alt="photo du vehicule"
                       width="100%"
                       height="100%"
@@ -128,14 +127,14 @@ export default function CarsDates() {
 
                       <div className="font-bold text-xl mb-2">
                         <form onSubmit={handleSubmit}>
-                        <button 
-                          className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
+                          <button
+                            className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
                                         focus:outline-none focus:ring-[#24292F]/50 text-sm font-semibold rounded-lg 
                                         px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500
                                         dark:hover:bg-[#050708]/30 mr-2 mb-2  "
-                        >
-                          Réserver
-                        </button>
+                          >
+                            Réserver
+                          </button>
                         </form>
                       </div>
                     </div>
