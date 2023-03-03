@@ -12,7 +12,8 @@ export default function CarsDates() {
   const location = useLocation();
   const test2 = location.state;
   console.log("test2");
-  console.log(test2);
+  console.log(test2.datefield1);
+  console.log(test2.datefield2);
   const callApi = () => {
     AutoApiF(test2)
       .then((response) => {
