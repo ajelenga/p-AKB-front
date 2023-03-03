@@ -9,9 +9,11 @@ import {useNavigate} from 'react-router-dom';
 
 export default function CarsDates() {
   const [data, setData] = useState([]);
+  const [ValuesCars, setValuesCars] = useState([]);
 
   const location = useLocation();
   const test2 = location.state;
+  const contentData;
   //console.log("test2");
   //console.log(test2.datefield1);
   //console.log(test2.datefield2);
@@ -20,6 +22,7 @@ export default function CarsDates() {
       .then((response) => {
         console.log(response.data);
         setData(response.data);
+        setValuesCars=response.data;
       })
       .catch(function (error) {
         console.error(error);
@@ -31,14 +34,12 @@ export default function CarsDates() {
     callApi();
   }, []);
 
-  const [valuesCars, setValues] = useState({
-    data
-})
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("test le boutton réserver")
-    console.log(valuesCars);
+    console.log(ValuesCars);
     //navigate('/cars_reserver', {state: values});
 };
 
