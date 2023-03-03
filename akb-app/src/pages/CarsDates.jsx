@@ -22,7 +22,7 @@ export default function CarsDates() {
       .then((response) => {
         console.log(response.data);
         setData(response.data);
-        setValuesCars=response.data;
+        setValuesCars(response.data);
       })
       .catch(function (error) {
         console.error(error);
