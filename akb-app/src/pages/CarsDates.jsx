@@ -5,10 +5,11 @@ import {useLocation} from "react-router";
 import Navbar from "../components/Menu/Navbar";
 import {AutoApiF} from "../services/AutoApi";
 import "../Styles/carsDates.sass";
+import {useNavigate} from 'react-router-dom';
 
 export default function CarsDates() {
     const [data, setData] = useState([]);
-    const [ValuesCars, setValuesCars] = useState([]);
+    const navigate = useNavigate();
 
     const location = useLocation();
     const test2 = location.state;
@@ -21,7 +22,6 @@ export default function CarsDates() {
             .then((response) => {
                 console.log(response.data);
                 setData(response.data);
-                setValuesCars(response.data);
             })
             .catch(function (error) {
                 console.error(error);
@@ -35,9 +35,8 @@ export default function CarsDates() {
 
     const handleClick = (valueP) => {
         console.log('Le bouton a été cliqué !');
-        console.log(valueP);
-        console.log(ValuesCars);
-        //navigate('/cars_reserver', {state: ValuesCars});
+        //console.log(valueP);
+        navigate('/cars_reserver', {state: valueP});
     };
 
 
