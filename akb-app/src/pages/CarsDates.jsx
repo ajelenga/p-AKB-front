@@ -30,6 +30,12 @@ export default function CarsDates() {
     callApi();
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("test le boutton réserver")
+    //navigate('/cars_dates', {state: values});
+};
+
   return (
     <section className="home_LOGIN">
       <Navbar />
@@ -40,7 +46,7 @@ export default function CarsDates() {
               <div className="text-center">
                 <Fragment>
                   <Typography variant="h5">
-                    Liste des véhicules disponiles à {test2.address_icon} la date du {test2.datefield1} au {test2.datefield2}
+                    Liste des véhicules disponiles à {test2.address_icon} - {test2.datefield1} au {test2.datefield2}
                   </Typography>
                 </Fragment>
               </div>
@@ -114,7 +120,8 @@ export default function CarsDates() {
                       </span>
 
                       <div className="font-bold text-xl mb-2">
-                        <button
+                        <form onSubmit={handleSubmit}>
+                        <button 
                           className="button-home text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4
                                         focus:outline-none focus:ring-[#24292F]/50 text-sm font-semibold rounded-lg 
                                         px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500
@@ -122,6 +129,7 @@ export default function CarsDates() {
                         >
                           Réserver
                         </button>
+                        </form>
                       </div>
                     </div>
                   </div>

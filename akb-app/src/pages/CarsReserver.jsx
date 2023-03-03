@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Navbar from "../components/Menu/Navbar";
 import "../Styles/carsDates.sass";
 
-const BlogPostQuestion = () => {
+const CarsReserver = () => {
     return (
         <section className="home_LOGIN">
             <Navbar/>
@@ -90,4 +90,4 @@ const BlogPostQuestion = () => {
     );
 };
 
-export default BlogPostQuestion;
+export default CarsReserver;
